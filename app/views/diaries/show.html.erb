@@ -1,2 +1,6 @@
-<h1>Diaries#show</h1>
-<p>Find me in app/views/diaries/show.html.erb</p>
+<div>
+  <% if @diary.image.attached? %>
+    <%= image_tag @diary.image.variant(resize:'100x100') %>
+  <% end %>
+  <%= @diary.title %>
+</div>

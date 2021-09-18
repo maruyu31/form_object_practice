@@ -1,2 +1,12 @@
-<h1>Diaries#index</h1>
-<p>Find me in app/views/diaries/index.html.erb</p>
+<div class="btn">
+  <%= link_to "日記を作成する", new_diary_path %>
+</div>
+<div class="index">
+  <% @diaries.each do |diary| %>
+    <div class="content">
+      <%= link_to diary_path(diary) do %>
+        <%= diary.title %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

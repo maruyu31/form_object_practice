@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_09_17_132431) do
 
   create_table "records", force: :cascade do |t|
     t.string "text"
+    t.integer "diary_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

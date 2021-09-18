@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root :to => "diaries#index"
+  root "diaries#index"
   resources :diaries
 end
