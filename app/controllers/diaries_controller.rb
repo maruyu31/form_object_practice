@@ -17,9 +17,11 @@ class DiariesController < ApplicationController
 
   def create
     @diary = PostDiary.new(diary_params)
-    @diary.save
-    binding.pry
-    redirect_to root_path
+    if @diary.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def update

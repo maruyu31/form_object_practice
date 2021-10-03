@@ -3,4 +3,7 @@
     <%= image_tag @diary.image.variant(resize:'100x100') %>
   <% end %>
   <%= @diary.title %>
+  <% @diary.records.each do |record| %>
+    <%= record.text %>
+  <% end %>
 </div>

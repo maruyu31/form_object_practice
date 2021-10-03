@@ -8,6 +8,6 @@ class PostDiary
 
   def save
     diary = Diary.create(title: title, image: image)
-    Record.create(text: text, diary_id: diary.id)
+    diary.records.create(text: text)
   end
 end
