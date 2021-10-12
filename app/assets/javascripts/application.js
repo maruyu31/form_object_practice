@@ -15,19 +15,27 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+/*global $*/
 
+var minCount = 1;
+var maxCount = 6;
 
-// console.log('hoge');
-
-
-$((document) => {
-  $("#add-button").click(() => {
-    $("#target").text("おはよう！");
+$(function(){
+  $('#demo-plus').on('click', function(){
+    var inputCount = $('#demo-area .unit').length;
+    if (inputCount < maxCount){
+      var element = $('#demo-area .unit:last-child').clone(true);
+      var inputList = element[0].querySelectorAll('input[type="text"]');
+      for (var i = 0; i < inputList.length; i++) {
+        inputList[i].value = "";
+      }
+      $('#demo-area .unit').parent().append(element);
+    }
+  });
+  $('.demo-minus').on('click', function(){
+    var inputCount = $('#demo-area .unit').length;
+    if (inputCount > minCount){
+      $(this).parents('.unit').remove();
+    }
   });
 });
-
-// $(document).ready(function () {
-//   $("#add-button").on('click', function(){
-//     $("#target").text("おはよう！");
-//   });
-// });
