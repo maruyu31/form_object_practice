@@ -1,27 +1,33 @@
 <%= form_with model: @diary, url: diaries_path, local: true do |f| %>
-  <div class="field">
-    <%= f.label :今日の画像 %>
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="field">
-    <%= f.label :今日の日付 %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div id="demo-area" class="form-group">
-    <div class="unit input-group mb-2">
-      <div class="input-group-prepend">
-        <%= f.label :今日やったこと %>
-      </div>
-      <%= f.text_field :text, name: "text[]" %>
-      <div class="demo-minus input-group-append">
-        <span class="btn btn-danger">-</span>
-      </div>
+  <div class="field post-image">
+    <div class="post-image-title">
+      <%= f.label :今日の画像 %>
+    </div>
+    <div class="post-image-form">
+      <%= f.file_field :image %>
     </div>
   </div>
 
-  <div id="demo-plus" class="btn btn-primary">+</div>
+  <div class="field post-date">
+    <div class="post-date-title">
+      <%= f.label :今日の日付 %>
+    </div>
+    <div class="post-date-form">
+      <%= f.text_field :title %>
+    </div>
+  </div>
+
+  <div id="form_area">
+    <div>
+      <%= f.label :今日やったこと %>
+    </div>
+    <div>
+      <%= f.text_field :text, id: "inputform_0", placeholder: "フォーム-0" %>
+    </div>
+  </div>
+
+  <input type="button" value="フォーム追加" onclick="addForm()">
+
 
   <div class="actions">
     <%= f.submit %>
